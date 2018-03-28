@@ -1,0 +1,9 @@
+<div>
+  <h2>Search By:</h2>
+  <div>
+    <h3 (click)="searchBooksBy('+title')"><label>Title:</label></h3>
+    <h3 (click)="searchBooksBy('+author')"><label>Author:</label></h3>
+    <input #searchTerm/><button (click)="searchBooks(searchTerm.value)">Search</button>
+  </div>
+</div>
+{{searchBy}}
