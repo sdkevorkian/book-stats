@@ -1,3 +1,15 @@
-<p>
-  book-card works!
-</p>
+<div class="book-card">
+  <h3 class="book-card-title">{{book.title}}</h3>
+  <div class="book-card-details">
+    <p>
+      {{book.authors ? book.authors.length > 1 ? 'Authors:' : 'Author:' : ''}}
+      <span *ngFor="let author of book.authors; let isLast = last" class="author">{{author}}{{isLast ? '' : ', '}}</span>
+    </p>
+    <p>
+      {{book.categories ? book.categories.length > 1 ? 'Categories:' : 'Category:' : ''}}
+      <span *ngFor="let categories of book.categories; let isLast = last" class="categories">{{categories}}{{isLast ? '' : ', '}}</span>
+    </p>
+  </div>
+  <img class="book-card-image" *ngIf="book.imageLinks" src="{{book.imageLinks.thumbnail}}" />
+  <p class="book-card-description" *ngIf="book.description" (click)="toggleExpand()">{{book.description | truncate:char}}<span *ngIf="showMore" class="view-more">View More <i class="fas fa-arrow-down"></i></span></p>
+</div>

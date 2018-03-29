@@ -6,12 +6,19 @@
     <h3 (click)="searchBooksBy('+inauthor')" [class.selected]="searchBy==='+inauthor'"><label>Author</label></h3>
     <h3 (click)="searchBooksBy('+subject')" [class.selected]="searchBy==='+subject'"><label>Subject</label></h3>
   </div>
-  <input #searchTerm required (keyup.enter)="searchBooks(searchTerm.value)" (keyup)="0" /><button (click)="searchBooks(searchTerm.value)" [class.filled]="" [disabled]="!searchTerm.value">Search</button>
+  <div class="search-container">
+    <div>
+      <input #searchTerm required (keyup.enter)="searchBooks(searchTerm.value)" (keyup)="0" />
+      <button (click)="searchBooks(searchTerm.value)" [class.filled]="" [disabled]="!searchTerm.value">Search</button>
+    </div>
+    <div [hidden]="searchTerm.value"><p>please enter a search term</p></div>
+  </div>
 </div>
-<div [hidden]="searchTerm.value">please enter a search term</div>
 
-<div *ngIf="books" class="book-grid">
-  <div *ngFor="let book of books.items">{{book.volumeInfo.title}} by <span *ngFor="let author of book.volumeInfo.authors; let isLast = last">{{author}}{{isLast ? '' : ','}} </span></div>
+<div *ngIf="books">
+  <div *ngFor="let book of books.items" class="book-list">
+    <app-book-card [book]="book.volumeInfo"></app-book-card>
+  </div>
   <div *ngIf="books.totalItems===0">No books found</div>
 </div>
 

@@ -1,12 +1,13 @@
-.search-ui{
-  margin: 10px 0;
+.search-ui {
+  margin: 10px auto;
+  max-width: 75%;
 }
 
 input {
-  background: white url(../../assets/google_watermark.gif) no-repeat 0 50%;
+  background: white url(../../assets/google_watermark.gif) no-repeat 5% 50%;
   border: 1px solid #999999;
   height: 18px;
-  outline-color: teal;
+  outline-color: #c7f5f5;
   margin-right: 5px;
 }
 
@@ -15,7 +16,8 @@ input:valid {
 }
 
 .selected {
-  background-color: orange;
+  background-color: #c7f5f5;
+  border-radius: 5px;
 }
 
 .search-options {
@@ -26,6 +28,22 @@ input:valid {
 
 h3 {
   display: inline-block;
-  padding: 10px;
+  padding: 10px 20px;
 }
 
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  color: #037575;
+  background-color: #c7f5f5;
+  border: 2px solid #037575;
+}
+
+button:disabled {
+  color: lightslategray;
+  background-color: darkgray;
+  border-color: darkgray;
+}

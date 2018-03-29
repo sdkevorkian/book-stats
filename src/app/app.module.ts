@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { BookService } from './book.service';
 import { BookCardComponent } from './book-card/book-card.component';
+import { TruncatePipe } from './shared/truncate.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookSearchComponent,
-    BookCardComponent
+    BookCardComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
