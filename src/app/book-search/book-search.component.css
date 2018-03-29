@@ -1,3 +1,7 @@
+.search-title{
+  margin: 0;
+}
+
 .search-ui {
   margin: 10px auto;
   max-width: 75%;
@@ -26,7 +30,7 @@ input:valid {
   width: 100%;
 }
 
-h3 {
+.search-options h3 {
   display: inline-block;
   padding: 10px 20px;
 }
@@ -40,6 +44,7 @@ button {
   color: #037575;
   background-color: #c7f5f5;
   border: 2px solid #037575;
+  outline-color: #c7f5f5;
 }
 
 button:disabled {

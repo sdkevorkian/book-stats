@@ -8,18 +8,22 @@ import { BookSearchComponent } from './book-search/book-search.component';
 import { BookService } from './book.service';
 import { BookCardComponent } from './book-card/book-card.component';
 import { TruncatePipe } from './shared/truncate.pipe';
+import { AppRoutingModule } from './/app-routing.module';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookSearchComponent,
     BookCardComponent,
-    TruncatePipe
+    TruncatePipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [BookService],
   bootstrap: [AppComponent]
