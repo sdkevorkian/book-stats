@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book-search',
@@ -7,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookSearchComponent implements OnInit {
   searchBy: string;
-
-  constructor() { }
+  books: any;
+  noBooks: boolean;
+  constructor(private bookSVC: BookService) { }
 
   ngOnInit() {
   }
   searchBooks(term: string): void {
-    console.log('books here:' + term + this.searchBy);
+    let terms: string;
+    if (this.searchBy) {
+      terms = `${this.searchBy}:${term}`;
+    } else {
+      terms = term;
+    }
+    this.bookSVC.getBooks(terms).subscribe(books => {
+      console.log(books);
+      this.books = books;
+    })
   }
   searchBooksBy(mode: string): void {
     this.searchBy = mode;

@@ -1,9 +1,18 @@
-<div>
-  <h2>Search By:</h2>
-  <div>
-    <h3 (click)="searchBooksBy('+title')"><label>Title:</label></h3>
-    <h3 (click)="searchBooksBy('+author')"><label>Author:</label></h3>
-    <input #searchTerm/><button (click)="searchBooks(searchTerm.value)">Search</button>
+
+<h2>Search By:</h2>
+<div class="search-ui">
+  <div class="search-options">
+    <h3 (click)="searchBooksBy('+intitle')" [class.selected]="searchBy==='+intitle'"><label>Title</label></h3>
+    <h3 (click)="searchBooksBy('+inauthor')" [class.selected]="searchBy==='+inauthor'"><label>Author</label></h3>
+    <h3 (click)="searchBooksBy('+subject')" [class.selected]="searchBy==='+subject'"><label>Subject</label></h3>
   </div>
+  <input #searchTerm required (keyup.enter)="searchBooks(searchTerm.value)" (keyup)="0" /><button (click)="searchBooks(searchTerm.value)" [class.filled]="" [disabled]="!searchTerm.value">Search</button>
 </div>
-{{searchBy}}
+<div [hidden]="searchTerm.value">please enter a search term</div>
+
+<div *ngIf="books" class="book-grid">
+  <div *ngFor="let book of books.items">{{book.volumeInfo.title}} by <span *ngFor="let author of book.volumeInfo.authors; let isLast = last">{{author}}{{isLast ? '' : ','}} </span></div>
+  <div *ngIf="books.totalItems===0">No books found</div>
+</div>
+
+
