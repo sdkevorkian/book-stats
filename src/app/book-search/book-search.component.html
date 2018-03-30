@@ -17,7 +17,7 @@
 
 <div *ngIf="books">
   <div *ngFor="let book of books.items" class="book-list">
-    <app-book-card [book]="book.volumeInfo"></app-book-card>
+    <app-book-card [book]="book.volumeInfo" [id]="book.id"></app-book-card>
   </div>
   <div *ngIf="books.totalItems===0">No books found</div>
 </div>

@@ -12,4 +12,7 @@ export class BookService {
   getBooks(search: string) {
     return this.http.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=${googleKey}`);
   }
+  getBook(id: string) {
+    return this.http.get(`https://www.googleapis.com/books/v1/volumes/${id}?key=${googleKey}`);
+  }
 }

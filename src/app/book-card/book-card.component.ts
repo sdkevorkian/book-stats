@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookCardComponent implements OnInit {
   @Input() book: any;
+  @Input() id: string;
   char: number;
   maxChar: number = 140;
   showMore: boolean;
@@ -20,7 +21,7 @@ export class BookCardComponent implements OnInit {
     if (this.book.description) {
       this.showMore = this.book.description.length > this.char;
     }
-    //console.log(this.book);
+    console.log(this.book);
   }
   toggleExpand() {
     if (this.char === this.maxChar) {

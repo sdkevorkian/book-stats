@@ -27,6 +27,8 @@
   grid-column: 1/4;
 }
 
-.view-more {
+.view-more,
+a {
   color: #037575;
+  font-weight: 800;
 }

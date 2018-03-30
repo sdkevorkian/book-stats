@@ -9,6 +9,7 @@
       {{book.categories ? book.categories.length > 1 ? 'Categories:' : 'Category:' : ''}}
       <span *ngFor="let categories of book.categories; let isLast = last" class="categories">{{categories}}{{isLast ? '' : ', '}}</span>
     </p>
+    <p *ngIf="id"><a routerLink="/book/{{id}}">View Stats <i class="fas fa-chart-bar"></i></a></p>
   </div>
   <img class="book-card-image" *ngIf="book.imageLinks" src="{{book.imageLinks.thumbnail}}" />
   <p class="book-card-description" *ngIf="book.description" (click)="toggleExpand()">{{book.description | truncate:char}}<span *ngIf="showMore" class="view-more">View More <i class="fas fa-arrow-down"></i></span></p>

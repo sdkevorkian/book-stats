@@ -10,6 +10,7 @@ import { BookCardComponent } from './book-card/book-card.component';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { AppRoutingModule } from './/app-routing.module';
 import { ErrorComponent } from './error/error.component';
+import { BookStatsComponent } from './book-stats/book-stats.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ErrorComponent } from './error/error.component';
     BookSearchComponent,
     BookCardComponent,
     TruncatePipe,
-    ErrorComponent
+    ErrorComponent,
+    BookStatsComponent
   ],
   imports: [
     BrowserModule,
